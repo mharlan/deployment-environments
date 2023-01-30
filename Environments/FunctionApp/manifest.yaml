@@ -26,7 +26,7 @@ parameters:
     required: false
   - id: "runtime"
     name: "runtime"
-    defaultValue: "dotnet"
+    default: "dotnet"
     allowed: ["node", "dotnet", "java"]
   - id: "tags"
     name: "tags"
