@@ -17,8 +17,3 @@ parameters:
     default: "[format('a{0}', uniqueString(resourceGroup().id))]"
     type: "string"
     required: false
-  - id: "tags"
-    name: "tags"
-    description: "Tags to apply to environment resources"
-    type: "object"
-    required: false
