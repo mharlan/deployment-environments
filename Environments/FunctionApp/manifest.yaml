@@ -30,14 +30,3 @@ parameters:
     allowed: ["node", "dotnet", "java"]
     type: "string"
     required: false
-  - id: "tags"
-    name: "tags"
-    description: "Tags to apply to environment resources"
-    type: "object"
-    required: false
-  - id: "resourceName"
-    name: "resourceName"
-    type: "string"
-    description: "The name of the all fo the actual resources"
-    default: "[if(not(empty(parameters('name'))), replace(parameters('name'), ' ', '-'), format('a{0}', uniqueString(resourceGroup().id)))]"
-    required: false
