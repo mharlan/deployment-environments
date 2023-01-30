@@ -4,3 +4,38 @@ summary: Azure Function App Environment
 description: Deploys an Azure Function App, Storage Account, and Application Insights
 runner: ARM
 templatePath: azuredeploy.json
+parameters:
+  - id: "name"
+    name: "name"
+    description: "Name of the Function App"
+    default: ""
+    type: "string"
+    required: true
+  - id: "location"
+    name: "location"
+    description: "Location to deploy the environment resources"
+    default: "[resourceGroup().location]"
+    type: "string"
+    required: false
+  - id: "supportsHttpsTrafficOnly"
+    name: "supportsHttpsTrafficOnly"
+    description: "Allows https traffic only to Storage Account and Functions App if set to true."
+    default: true
+    type: "boolean"
+    allowed: [true, false]
+    required: false
+  - id: "runtime"
+    name: "runtime"
+    defaultValue: "dotnet"
+    allowed: ["node", "dotnet", "java"]
+  - id: "tags"
+    name: "tags"
+    description: "Tags to apply to environment resources"
+    type: "object"
+    required: false
+  - id: "resourceName"
+    name: "resourceName"
+    type: "string"
+    description: "The name of the all fo the actual resources"
+    default: "[if(not(empty(parameters('name'))), replace(parameters('name'), ' ', '-'), format('a{0}', uniqueString(resourceGroup().id)))]"
+    required: false

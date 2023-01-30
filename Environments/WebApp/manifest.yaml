@@ -4,3 +4,21 @@ summary: Azure Web App Environment
 description: Deploys an Azure Web App without a data store
 runner: ARM
 templatePath: azuredeploy.json
+parameters:
+  - id: "location"
+    name: "location"
+    description: "Location to deploy the environment resources"
+    default: "[resourceGroup().location]"
+    type: "string"
+    required: false
+  - id: "resourcePrefix"
+    name: "resourcePrefix"
+    description: "The resource prefix"
+    default: "[format('a{0}', uniqueString(resourceGroup().id))]"
+    type: "string"
+    required: false
+  - id: "tags"
+    name: "tags"
+    description: "Tags to apply to environment resources"
+    type: "object"
+    required: false
