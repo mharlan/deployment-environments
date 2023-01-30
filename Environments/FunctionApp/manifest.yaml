@@ -28,6 +28,8 @@ parameters:
     name: "runtime"
     default: "dotnet"
     allowed: ["node", "dotnet", "java"]
+    type: "string"
+    required: false
   - id: "tags"
     name: "tags"
     description: "Tags to apply to environment resources"
