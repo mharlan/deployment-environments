@@ -1,0 +1,37 @@
+name: FunctionAppBroken
+version: 1.0.0
+summary: Azure Function App Environment (broken with tags)
+description: Deploys an Azure Function App, Storage Account, and Application Insights (broken with tags)
+runner: ARM
+templatePath: azuredeploy.json
+parameters:
+  - id: "name"
+    name: "name"
+    description: "Name of the Function App"
+    default: ""
+    type: "string"
+    required: true
+  - id: "location"
+    name: "location"
+    description: "Location to deploy the environment resources"
+    default: "[resourceGroup().location]"
+    type: "string"
+    required: false
+  - id: "supportsHttpsTrafficOnly"
+    name: "supportsHttpsTrafficOnly"
+    description: "Allows https traffic only to Storage Account and Functions App if set to true."
+    default: true
+    type: "boolean"
+    allowed: [true, false]
+    required: false
+  - id: "runtime"
+    name: "runtime"
+    default: "dotnet"
+    allowed: ["node", "dotnet", "java"]
+    type: "string"
+    required: false
+  - id: "tags"
+    name: "tags"
+    description: "Tags to apply to environment resources"
+    type: "object"
+    required: false
